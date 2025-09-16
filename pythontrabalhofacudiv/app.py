@@ -27,6 +27,6 @@ if vet_gu:
         gu_div1.append(a)
         gu_div2.append(b)
         print(f"{n} tem divisores {a} e {b}")
-    with open("relat_gu.csv", "w", encoding="utf-8") as f:
+    with open("relat_gustavo.csv", "w", encoding="utf-8") as f:
         for n, a, b in zip(vet_gu, gu_div1, gu_div2):
             f.write(f"{n},{a},{b}\n")
