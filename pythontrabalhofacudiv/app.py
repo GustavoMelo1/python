@@ -1,32 +1,45 @@
-def ler_numeros():
-    vet_gu = []
-    while True:
-        try:
-            n = int(input("Número: "))
-        except ValueError:
-            continue
-        if n == -1:
-            break
-        if n > 1 and n not in vet_gu:
-            vet_gu.append(n)
-    return vet_gu
+# Trabalho de Algoritmos de Gustavo Melo Oliveira
+# Feito no dia 24/09/2025 as 18:24 da tarde
 
-def primeira_dupla(n):
+print("digite números maior que 1, e use o -1 para cancelar")
+vet_gu = []
+gustavo_div1 = []
+gustavo_div2 = []
+
+while True:
+    try:
+        n = int(input("número: "))
+    except:
+        print("so pode numeros")
+        continue
+
+    if n == -1:
+        break
+    if n <= 1:
+        print("tem que ser maior que 1")
+        continue
+    if n in vet_gu:
+        print("tu já digitou esse numero, escreva outro")
+        continue
+
+    vet_gu.append(n)
+
+for n in vet_gu:
     d = 2
-    while d < n:
+    a, b = 1, n
+    while d * d <= n:
         if n % d == 0:
-            return d, n // d
+            a, b = d, n // d
+            break
         d += 1
-    return 1, n
 
-vet_gu = ler_numeros()
+    gustavo_div1.append(a)
+    gustavo_div2.append(b)
+    print(f"{n} divisores sao {a} e {b}")
+
 if vet_gu:
-    gu_div1, gu_div2 = [], []
-    for n in vet_gu:
-        a, b = primeira_dupla(n)
-        gu_div1.append(a)
-        gu_div2.append(b)
-        print(f"{n} tem divisores {a} e {b}")
-    with open("relat_gustavo.csv", "w", encoding="utf-8") as f:
-        for n, a, b in zip(vet_gu, gu_div1, gu_div2):
-            f.write(f"{n},{a},{b}\n")
+    with open("atividade-gustavomelooliveira.txt", "w", encoding="utf-8") as f:
+        f.write("n;d1;d2\n")
+        for i in range(len(vet_gu)):
+            f.write(f"{vet_gu[i]};{gustavo_div1[i]};{gustavo_div2[i]}\n")
+    print("relatório foi gerado")
