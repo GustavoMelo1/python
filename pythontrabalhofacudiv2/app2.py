@@ -3,7 +3,7 @@
 
 print("digite números maior que 1, e use o -1 para cancelar")
 
-nums = []
+numeros = []
 while True:
     try:
         n = int(input("número: "))
@@ -16,14 +16,14 @@ while True:
     if n <= 1:
         print("tem que ser maior que 1")
         continue
-    if n in nums:
+    if n in numeros:
         print("tu já digitou esse, escreva outro")
         continue
 
-    nums.append(n)
+    numeros.append(n)
 
 pares = []
-for n in nums:
+for n in numeros:
     d = 2
     a, b = 1, n
     while d <= n // 2:

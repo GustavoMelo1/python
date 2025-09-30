@@ -2,7 +2,7 @@
 # Feito no dia 24/09/2025 as 18:24 da tarde
 
 print("digite números maior que 1, e use o -1 para cancelar")
-vet_gu = []
+vetor_gu = []
 gustavo_div1 = []
 gustavo_div2 = []
 
@@ -18,13 +18,13 @@ while True:
     if n <= 1:
         print("tem que ser maior que 1")
         continue
-    if n in vet_gu:
+    if n in vetor_gu:
         print("tu já digitou esse numero, escreva outro")
         continue
 
-    vet_gu.append(n)
+    vetor_gu.append(n)
 
-for n in vet_gu:
+for n in vetor_gu:
     d = 2
     a, b = 1, n
     while d * d <= n:
@@ -37,9 +37,9 @@ for n in vet_gu:
     gustavo_div2.append(b)
     print(f"{n} divisores sao {a} e {b}")
 
-if vet_gu:
+if vetor_gu:
     with open("atividade-gustavomelooliveira.txt", "w", encoding="utf-8") as f:
         f.write("n;d1;d2\n")
-        for i in range(len(vet_gu)):
-            f.write(f"{vet_gu[i]};{gustavo_div1[i]};{gustavo_div2[i]}\n")
+        for i in range(len(vetor_gu)):
+            f.write(f"{vetor_gu[i]};{gustavo_div1[i]};{gustavo_div2[i]}\n")
     print("relatório foi gerado")
